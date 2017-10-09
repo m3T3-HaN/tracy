@@ -39,7 +39,7 @@ composer require tracy/tracy
 
 Alternatively, you can download the whole package or [tracy.phar](https://github.com/nette/tester/releases) file.
 
-It requires PHP version 5.4.4 and supports PHP up to 7.2.
+It requires PHP version 7.1 and supports PHP up to 7.2. (Version 2.4 works with PHP 5.4.)
 
 
 Usage
