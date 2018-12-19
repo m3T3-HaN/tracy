@@ -173,6 +173,17 @@ class Bar
 	public function dispatchAssets(): bool
 	{
 		$asset = $_GET['_tracy_bar'] ?? null;
+		/*
+			detect tracy js
+			Check the tracy request with regex for mvc types that do not receive data with get type
+			my .htaccess file not send GET respond, so required for tracy
+		*/
+		if(isset($_SERVER["REDIRECT_QUERY_STRING"])){
+			if(preg_match('/_tracy_\w+=(\w+)/m',$_SERVER["REDIRECT_QUERY_STRING"],$match)){
+				$asset = $match[1] ?? null;
+			}
+		}
+		
 		if ($asset === 'js') {
 			header('Content-Type: application/javascript');
 			header('Cache-Control: max-age=864000');
